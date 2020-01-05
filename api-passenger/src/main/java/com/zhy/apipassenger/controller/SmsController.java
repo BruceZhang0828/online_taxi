@@ -1,5 +1,7 @@
 package com.zhy.apipassenger.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCollapser;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.zhy.apipassenger.dto.ShortMsgRequest;
 import com.zhy.apipassenger.service.ShortMsgService;
 import com.zhy.taxi.common.dto.ResponseResult;
@@ -23,6 +25,7 @@ public class SmsController {
     private ShortMsgService shortMsgService;
 
 
+    @HystrixCommand(fallbackMethod = "sendFail")
     @PostMapping(value = "/send")
     public ResponseResult send(@RequestBody ShortMsgRequest shortMsgRequest) {
         String phoneNumber = shortMsgRequest.getPhonenumber();
@@ -30,5 +33,12 @@ public class SmsController {
         String code = "123456";
         ResponseResult responseResult = shortMsgService.send(phoneNumber, code);
         return null;
+    }
+
+
+    // 熔断处理
+    public ResponseResult sendFail() {
+
+        return ResponseResult.fail(-1, "熔断处理");
     }
 }
