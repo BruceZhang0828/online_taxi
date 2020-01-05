@@ -13,3 +13,6 @@ eureka:
   instance:
     hostname: localhost
     instance-id: api-passenger
+feign:
+  hystrix:
+    enabled: true
