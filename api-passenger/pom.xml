@@ -54,8 +54,11 @@
             <artifactId>taxi-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-
-
+        <!--引入Ribbon的依赖 client 已经再引用-->
+        <!--<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        </dependency>-->
         <!-- 引入feign依赖 ，用来实现接口伪装 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

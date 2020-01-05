@@ -22,6 +22,7 @@ public class ApiPassengerApplication {
         SpringApplication.run(ApiPassengerApplication.class, args);
     }
 
+    // 进行负载均衡 - Robbon
     @Bean
     @LoadBalanced
     public RestTemplate restTemplate() {
