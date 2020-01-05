@@ -1,0 +1,53 @@
+#服务端口
+server: 
+  port: 8002
+
+#应用名称及验证账号
+spring: 
+  application: 
+    name: service-sms
+# 数据相关配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    #配置MySQL的驱动程序类
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #数据库连接地址
+    url: jdbc:mysql://localhost:3306/online_taxi?characterEncoding=UTF-8&serverTimezone=UTC
+    #数据库连接用户名
+    username: root
+    #数据库连接密码
+    password: 123456
+    #进行数据库连接池的配置
+    dbcp2:
+      #初始化提供的连接数
+      initial-size: 5
+      #数据库连接池的最小维持连接数
+      min-idle: 5
+      #最大的连接数
+      max-total: 5
+      #等待连接获取的最大超时时间
+      max-wait-millis: 200
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+mybatis:
+  config-location: classpath:mybatis/mybatis.xml
+  type-aliases-package: com.zhy.taxi.common
+  mapper-locations:
+    - classpath:mybatis/mapper/*.xml
+#注册中心
+eureka: 
+#  server:
+#    enable-self-preservation: false       #关闭保护机制
+#    eviction-interval-timer-in-ms: 2000   #剔除失效服务间隔,单位毫秒
+  client:
+    #设置服务注册中心的URL
+    service-url:                      
+      defaultZone: http://root:root@eureka-7901:7901/eureka/
+  instance:
+    hostname: localhost
+    instance-id: service-sms
+    metadata-map:
+      user.name: root
+      user.password: root

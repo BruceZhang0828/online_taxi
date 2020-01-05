@@ -1,0 +1,23 @@
+#服务端口
+server:
+  port: 7901
+
+
+  #应用名称以及验证账号
+spring:
+  application:
+    name: eureka-7901
+#  security:
+#    user:
+#      name: root
+#      password: root
+eureka:
+  server:
+    enable-self-preservation: false
+  client:
+    serviceUrl:
+      defaultZone: http://eureka7902/7902/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    hostname: eureka7901

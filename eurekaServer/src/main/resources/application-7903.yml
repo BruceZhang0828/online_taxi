@@ -1,0 +1,22 @@
+#服务端口
+server:
+  port: 7903
+
+
+  #应用名称以及验证账号
+spring:
+  application:
+    name: eureka-7903
+  security:
+    user:
+      name: root
+      password: root
+eureka:
+  instance:
+    hostname: eureka-7903
+  client:
+    serviceUrl:
+      defaultZone: http://root:root@eureka-7901/7901/eureka/,http://root:root@eureka-7902/7902/eureka/,http://root:root@eureka-7903/7903/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+    ip-address: 127.0.0.1

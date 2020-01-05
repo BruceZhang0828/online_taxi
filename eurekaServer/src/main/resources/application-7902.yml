@@ -1,0 +1,23 @@
+#服务端口
+server:
+  port: 7902
+
+
+  #应用名称以及验证账号
+spring:
+  application:
+    name: eureka-7902
+#  security:
+#    user:
+#      name: root
+#      password: root
+
+eureka:
+  instance:
+    hostname: eureka7902
+  client:
+    serviceUrl:
+      defaultZone: http://eureka7901/7901/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+

@@ -1,0 +1,38 @@
+#服务端口
+server:
+  port: 7901
+
+
+#应用名称以及验证账号
+spring:
+  application:
+    name: eureka
+  security:
+    user:
+      name: root
+      password: root
+
+eureka:
+   #server:
+    #enable-self-preservation: false #关闭保护机制
+    #eviction-interval-timer-in-ms: 2000 #剔除失效服务间隔,单位毫秒
+   client:
+    service-url:
+      defaultZone: http://root:root@eureka-7901:7901/eureka/
+   instance:
+    hostname: eureka-7901
+    instance-id: eureka-7901
+
+
+
+
+
+# admin监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
