@@ -5,6 +5,11 @@ server:
 spring:
   application:
     name: api-passenger
+  redis:
+    datasource: 0
+    host: 192.168.231.129
+    port: 6379
+    timeout: 2000
 eureka:
   client:
     #设置服务注册中心的URL

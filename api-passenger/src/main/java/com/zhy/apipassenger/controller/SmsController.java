@@ -6,10 +6,7 @@ import com.zhy.apipassenger.dto.ShortMsgRequest;
 import com.zhy.apipassenger.service.ShortMsgService;
 import com.zhy.taxi.common.dto.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @ClassName SmsController
@@ -40,5 +37,10 @@ public class SmsController {
     public ResponseResult sendFail(ShortMsgRequest shortMsgRequest) {
 
         return ResponseResult.fail(-1, "熔断处理");
+    }
+
+    @GetMapping("/getRedis")
+    public String getRedis(){
+        return shortMsgService.getRedis();
     }
 }

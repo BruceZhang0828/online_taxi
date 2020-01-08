@@ -9,6 +9,8 @@ import com.zhy.taxi.common.dto.sms.SmsTemplateDto;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -35,6 +37,15 @@ public class ShortMsgServiceImpl implements ShortMsgService {
 
     @Autowired
     private LoadBalancerClient loadBalancerClient;
+
+    @Autowired
+    private StringRedisTemplate stringRedisTemplate;
+
+    @Override
+    public String getRedis() {
+        String s = stringRedisTemplate.opsForValue().get("service-sms");
+        return s;
+    }
 
     @Override
     public ResponseResult send(String phoneNumber, String code) {
