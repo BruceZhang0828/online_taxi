@@ -10,6 +10,11 @@ spring:
     host: 192.168.231.129
     port: 6379
     timeout: 2000
+# 是否在启动的时候加载这个servlet >=0时 启动时加载
+  mvc:
+    servlet:
+      load-on-startup: 1
+
 eureka:
   client:
     #设置服务注册中心的URL

@@ -17,4 +17,7 @@ eureka:
 
   zull:
     routes:
-      api-passenger: /ap/**
+      api-passenger: /api/**
+
+    # 设置什么都不忽略,原来默认忽略cookie
+    sensitive-hearders:

@@ -35,7 +35,7 @@ public class SmsController {
 
     // 熔断处理
     public ResponseResult sendFail(ShortMsgRequest shortMsgRequest) {
-
+        // 备用逻辑
         return ResponseResult.fail(-1, "熔断处理");
     }
 
