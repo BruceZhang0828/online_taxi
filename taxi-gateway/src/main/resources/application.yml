@@ -4,6 +4,26 @@ server:
 spring:
   application:
     name: online-taxi-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      default-filters:
+      # 全局过滤器为所有的响应加上头部X-Response-festival：国庆节
+      - AddResponseHeader=X-Response-festival,国庆节
+      routes:
+        # 转发到百度
+      - id: router-1
+        uri: http://www.baidu.com
+        predicates:
+        - Path=/bd/**
+        #不修饰的转到短信服务
+      - id: router-2
+        uri: lb://SERVICE-SMS
+        predicates:
+        - Path=/service-sms-gateway-test/**
+
 
 eureka:
   client:
@@ -15,9 +35,17 @@ eureka:
     instance-id: online-taxi-gateway
 
 
-  zull:
-    routes:
-      api-passenger: /api/**
+#网关
+#/**匹配后面所有路径
+zuul:
+  routes:
+    service-sms: /gate-way/sms/***
+    #忽略
+    #  ignored-services:
+    #  - api-passenger
 
-    # 设置什么都不忽略,原来默认忽略cookie
-    sensitive-hearders:
+    #  ignored-patterns:
+    #  - /*-passenger/**
+
+    #以下配置为空表示：所有请求头都透传到后面微服务。
+    #sensitive-headers:
