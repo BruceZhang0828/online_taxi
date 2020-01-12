@@ -12,6 +12,10 @@ import lombok.Getter;
  * </PRE>
  */
 public enum CommonStatus {
+
+    /**短信验证码服务	10001-10099*/
+    VERIFY_CODE_ERROR(10001,"短信验证码验证失败"),
+
     /**
      * 操作成功
      */
