@@ -51,10 +51,10 @@
         </dependency>
 
         <!-- 总线 -->
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>
-        </dependency>-->
+        </dependency>
         <!--引入redis 组件-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
