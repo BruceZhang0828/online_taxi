@@ -21,6 +21,13 @@ public enum CommonStatus {
      */
     SUCCESS(1, "success"),
 
+    /**
+     *
+     */
+
+    PHONENUMBER_EMPTY(10101,"手机号为空号"),
+
+    PHONENUMBER_ERROR(10102,"手机号格式不正确"),
 
     /**
      * 操作异常
