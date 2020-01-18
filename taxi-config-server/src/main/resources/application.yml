@@ -27,3 +27,10 @@ eureka:
   instance:
     hostname: localhost
     instance-id: config-server
+
+management:
+  endpoints:
+    web:
+      exposure:
+        # yml加双引号,properties不用加
+        include: "*"
