@@ -60,3 +60,11 @@ eureka:
     metadata-map:
       user.name: root
       user.password: root
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
