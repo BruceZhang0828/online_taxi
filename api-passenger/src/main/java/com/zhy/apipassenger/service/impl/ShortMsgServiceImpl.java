@@ -32,8 +32,8 @@ public class ShortMsgServiceImpl implements ShortMsgService {
     @Autowired
     private RestTemplate restTemplate;
 
-    @Autowired
-    private SmsClient smsClient;
+//    @Autowired
+//    private SmsClient smsClient;
 
     @Autowired
     private LoadBalancerClient loadBalancerClient;
@@ -71,10 +71,10 @@ public class ShortMsgServiceImpl implements ShortMsgService {
         data.add(smsTemplateDto);
         smsSendRequest.setData(data);
         //riboon 调用
-//        ResponseEntity<ResponseResult> entity = restTemplate.postForEntity(url, smsSendRequest, ResponseResult.class);
-//        ResponseResult result = entity.getBody();
+        ResponseEntity<ResponseResult> entity = restTemplate.postForEntity(url, smsSendRequest, ResponseResult.class);
+        ResponseResult result = entity.getBody();
         // feign 调用
-         ResponseResult result = smsClient.sendSms(smsSendRequest);
+         //ResponseResult result = smsClient.sendSms(smsSendRequest);
         System.out.println(JSONObject.fromObject(result));
         return null;
     }

@@ -31,7 +31,7 @@ public class SmsClientFallback implements SmsClient {
         if (StringUtils.isBlank(noticeString)) {
             // 进行熔断通知
             System.out.println("熔断了...");
-            redisTemplate.opsForValue().set(key,"notice",1000, TimeUnit.SECONDS);
+            redisTemplate.opsForValue().set(key,"notice",30, TimeUnit.SECONDS);
         }else{
             System.out.println("通知通过了,我先不通知了");
         }

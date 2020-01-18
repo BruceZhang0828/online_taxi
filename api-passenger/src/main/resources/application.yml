@@ -11,9 +11,9 @@ spring:
     port: 6379
     timeout: 2000
 # 是否在启动的时候加载这个servlet >=0时 启动时加载
-  mvc:
-    servlet:
-      load-on-startup: 1
+#  mvc:
+#    servlet:
+#      load-on-startup: 1
 
   #zipkin
   zipkin:
@@ -31,6 +31,29 @@ eureka:
   instance:
     hostname: localhost
     instance-id: api-passenger
-feign:
-  hystrix:
+#feign:
+#  hystrix:
+#    enabled: true
+
+ribbon:
+  eager-load:
     enabled: true
+    clients:
+      - SERVICE-SMS
+
+
+#Admin监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      ##默认是never
+      show-details: ALWAYS
+      enabled: true
+
+logging:
+  level:
+    org.springframework: DEBUG

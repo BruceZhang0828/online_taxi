@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * @ClassName ApiPassengerApplication
- * @Description TODO 达叔写点注释吧 @Author 搬砖的孟达
+ * @Description
  * @Date 2019/12/22 17:36
  * @Version 1.0
  */

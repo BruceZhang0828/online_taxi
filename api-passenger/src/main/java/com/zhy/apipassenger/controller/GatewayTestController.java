@@ -23,7 +23,7 @@ public class GatewayTestController {
         System.out.println("api-passenger-hello");
     }
 
-    @GetMapping("/api1")
+    @GetMapping("/test-token")
     public ResponseResult send(HttpServletRequest request) {
         String token = request.getHeader("token");
         String cookie = request.getHeader("Cookie");
